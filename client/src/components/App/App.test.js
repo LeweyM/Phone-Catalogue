@@ -8,3 +8,11 @@ it("renders without crashing", () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+// integration API tests...
+
+// should immediately render the loading symbol, state.fetchState === 'loading'.
+
+// after async api call has come back successful, should render list content. state.fetchState === 'success'.
+
+// after async api call has come back as failure, should render sorry msg. state.fetchState === 'failure'.

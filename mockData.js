@@ -1,4 +1,4 @@
-const mockData = [
+module.exports = [
   {
     age: 0,
     id: "motorola-xoom-with-wi-fi",
@@ -102,5 +102,3 @@ const mockData = [
       "The first smartphone with a 1.2 GHz processor and global capabilities."
   }
 ];
-
-export default mockData;

@@ -10,8 +10,10 @@ import "./_style.scss";
 function WithLoading(WrappedComponent) {
   class WithLoading extends Component {
     render() {
+      const self = this;
       const { ...childProps } = this.props;
       delete childProps.status;
+      delete childProps.errorMessage;
 
       return (function(status) {
         switch (status) {
@@ -20,7 +22,7 @@ function WithLoading(WrappedComponent) {
           case "loading":
             return <Loading />;
           case "failure":
-            return <FailureMessage />;
+            return <FailureMessage errorMessage={self.props.errorMessage} />;
           default:
             return <FailureMessage />;
         }
@@ -28,7 +30,8 @@ function WithLoading(WrappedComponent) {
     }
   }
   WithLoading.propTypes = {
-    status: PropTypes.string.isRequired
+    status: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string
   };
   return WithLoading;
 }
